@@ -1,17 +1,8 @@
-const { replaceURl, getHost } = require('../../src/utils/url');
+const { replaceURl } = require('../../src/utils/url');
 
-describe('getHost()', () => {
-	it('Debe Obtener el Host ', () => {
-		const header = { 'x-forwarded-proto': 'https', host: 'localhost:5000', hostname: 'localhost', method: 'POST' };
-
-		const expected = 'https://localhost:5000/dev';
-
-		expect(getHost(header)).toEqual(expected);
-	});
-});
 
 describe('replaceURl()', () => {
-	it('Debe cambiar el host', () => {
+	it('Debe cambiar el host Swapi por el del servidor nuevo', () => {
 		const host = 'http://localhost:5000/dev';
 
 		const urlSwappi = 'https://swapi.py4e.com/api';

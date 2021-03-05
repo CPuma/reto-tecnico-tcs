@@ -20,11 +20,12 @@ sls install serverless-dynamodb-local
 Tiene los endpoint GET que usa SWAPI como proveedor de data.
 Es una version PROXY de serverless , un solo lambda usando Express  para routear las peticiones al servicio que se necesite. 
 
-- No usa librerias para validar las request como Joi u otras, debido a que solo se podrian validar el caso de busqueda por ID. Se aumentaria el peso del lambda y su tiempo de despliegue por muy pocos beneficios
+- No usa librerias para validar las request como Joi u otras, debido a que solo se podrian validar el caso de busqueda por ID. Se aumentaria el peso del lambda y su tiempo de despliegue por muy pocos beneficios. 
 
 - Los servicios usados de Swapi son  : **/planets** , **/people** .
 Fueron traducidos y expuestas  en español **/planetas** , **/personajes**. (personajes suena mejor que personas). 
 - Se esta sirviendo con paginado , filtro por ID y  buscador por nombre
+- Si el el query **pagina** no es  un Numero Valido,  se omitira en la consulta
 
 - Personajes :: 
     https://3u1ccri4r2.execute-api.us-east-1.amazonaws.com/dev/personajes?page1&buscar=Leia
