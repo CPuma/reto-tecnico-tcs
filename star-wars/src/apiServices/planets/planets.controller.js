@@ -6,7 +6,7 @@ const getPlanets = async (req, res, next) => {
 		const { _hostname } = req;
 
 		let { pagina, buscar } = req.query;
-		pagina = pagina ? parseInt((pagina || 0).toString(), 10) : undefined;
+		pagina = isNaN(pagina) ? undefined : parseInt(pagina, 10);
 		buscar = buscar ? buscar.toString() : undefined;
 
 		const planets = await planetService.getPlanets(pagina, buscar);
