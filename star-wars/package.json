@@ -1,0 +1,22 @@
+{
+  "name": "star-wars",
+  "version": "1.0.0",
+  "description": "Reto Tecnico Indra modulo 1",
+  "main": "handler.js",
+  "scripts": {
+    "dev": "nodemon src.handler",
+    "test": "jest"
+  },
+  "author": "R@sec Puma",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0",
+    "swagger-jsdoc": "7.0.0-rc.1",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}

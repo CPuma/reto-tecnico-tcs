@@ -1,0 +1,85 @@
+service: dynamo-pokedex
+
+frameworkVersion: '2'
+
+custom:
+  default_stage: dev
+  tableName: 'pokedex-table-${self:provider.stage}'
+  bundle:
+    linting: false
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+      # heapInitial: 200m
+      # heapMax: 1g
+      # seed: true
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-bundle
+  - serverless-offline
+
+
+
+package:
+  excludeDevDependencies: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, self:custom.default_stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "*"
+  environment:
+    POKEDEX_TABLE: ${self:custom.tableName}
+    STAGE: ${self:provider.stage}
+
+resources:
+  Resources:
+    PokedexTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: ${self:custom.tableName} 
+        AttributeDefinitions:
+          - AttributeName: pokemonId
+            AttributeType: S 
+        KeySchema:
+          - AttributeName: pokemonId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+functions:
+  registerPokemon:
+    handler: src/handlers/create-pokemon.handler
+    events:
+      - http:
+          method: POST
+          path: /pokemon
+  getPokemon:
+    handler: src/handlers/get-pokemon.handler
+    events:
+      - http:
+          method: GET
+          path: /pokemon/{pokemonId}
+          # parameters:
+          #     paths:
+          #       pokemonId: true
+  getPokemons:
+    handler: src/handlers/get-all-pokemons.handler
+    events:
+      - http:
+          method: GET
+          path: /pokemon
+          

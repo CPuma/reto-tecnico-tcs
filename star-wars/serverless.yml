@@ -1,0 +1,30 @@
+service: star-wars
+
+frameworkVersion: '2'
+
+custom:
+  default_stage: dev
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, self:custom.default_stage}
+  environment:
+    STAGE: ${self:provider.stage}
+
+plugins:
+  - serverless-offline
+
+functions:
+  app:
+    handler: src/handler.appStarWars
+    events:
+      - http:
+          path: /         ## BUG . funciona con doble //
+          method: ANY
+      - http:
+          path: /{any+}
+          method: ANY
+      
+      
+      
