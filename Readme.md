@@ -28,7 +28,7 @@ Fueron traducidos y expuestas  en español **/planetas** , **/personajes**. (per
 - Si el el query **pagina** no es  un Numero Valido,  se omitira en la consulta
 
 - Personajes :: 
-    https://3u1ccri4r2.execute-api.us-east-1.amazonaws.com/dev/personajes?page1&buscar=Leia
+    https://3u1ccri4r2.execute-api.us-east-1.amazonaws.com/dev/personajes?pagina=1&buscar=Leia
 
 
 - Planetas :: 
