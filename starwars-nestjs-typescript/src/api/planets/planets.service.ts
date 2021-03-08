@@ -5,6 +5,7 @@ import { SwapiPlanetsService } from '../../providers/swapi/swapi-planets.service
 import { Querys } from '../../common/validator/query.valitador';
 import { plainToClass } from 'class-transformer';
 import { of } from 'rxjs';
+import { ErrorSwapi } from '../../providers/swapi/error/error-swapi';
 
 @Injectable()
 export class PlanetsService {
@@ -18,7 +19,7 @@ export class PlanetsService {
 			.getPlanets(pagina, buscar)
 			.pipe(
 				map((data) => plainToClass(PlanetsDto, data, { excludeExtraneousValues: true })),
-				catchError((error, src$) => of({ statusCode: error.status, message: error.message }))
+				catchError((error: ErrorSwapi, src$) => of({ statusCode: error.status, message: error.message }))
 			);
 	}
 
@@ -27,7 +28,7 @@ export class PlanetsService {
 			.getPlanetsById(id)
 			.pipe(
 				map((data) => ({ resultado: plainToClass(PlanetDto, data, { excludeExtraneousValues: true }) })),
-				catchError((error, src$) => of({ statusCode: error.status, message: error.message }))
+				catchError((error: ErrorSwapi, src$) => of({ statusCode: error.status, message: error.message }))
 			);
 	}
 }

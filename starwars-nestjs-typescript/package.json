@@ -16,15 +16,47 @@
     "rxjs": "^6.6.6"
   },
   "devDependencies": {
+    "@nestjs/testing": "^7.6.13",
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
     "plugin": "^0.3.3",
     "serverless-offline": "^6.8.0",
     "serverless-plugin-optimize": "^4.1.4-rc.1",
     "serverless-plugin-typescript": "^1.1.9",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.3",
+    "ts-jest": "^26.5.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "test-config",
+      "interfaces",
+      "jestGlobalMocks.ts",
+      ".module.ts",
+      "<rootDir>/src/main.ts",
+      "<rootDir>/src/index.ts",
+      ".mock.ts",
+      "coverage"
+    ],
+    "testEnvironment": "node"
+  }
 }

@@ -2,11 +2,11 @@
 
 ## VERSION SWAPI -  NESTJS + TYPESCRIPT + RXJS
 Por un mal consejo, no aplique Typescript y nestjs que es donde tengo mas experiencia. 
-Actualice para demo personal como lo haria usando NEST + Serverless + Typescript
+Actualice para demo personal como lo hubiera hecho usando NEST + Serverless + Typescript
 
 Por ahora tengo solo los planetas
 
-!! Observaciones .  A pesar de consumir un poco mas RAM. La velocidad de respuesta es mayor a las version de JS   anteriores.
+!! Observaciones . El tiempo  de respuesta ligeramente mayor a las version de JS   anteriores. Aun  intentare pulirlo un poco mas. 
 
 El peso logre bajarlo bastante usando netamente el CORE de NEST + algunas configuraciones y el plugin **serverless-plugin-optimize**.
 
