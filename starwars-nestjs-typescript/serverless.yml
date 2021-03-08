@@ -1,0 +1,29 @@
+
+service: starwars-nestjs-typescript
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'local'}
+
+package:
+  exclude:
+    - env
+    - __test__
+
+functions:
+  starwars-nestjs:
+    handler: src/lambda.handler
+    environment: ${file(./env/${self:provider.stage}.json)}
+    memorySize: 192
+    events:
+     - http:
+         method: any
+         path: /{any+}
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-optimize
+  - serverless-offline

@@ -1,0 +1,10 @@
+{
+    "STAGE": "dev",
+    "API_BASE_URL": "https://npmy9oafel.execute-api.us-east-1.amazonaws.com",
+    "API_ROUTE_PEOPLE": "/personajes",
+    "API_ROUTE_PLANETS": "/planetas",
+
+    "SWAPI_BASE_URL": "https://swapi.py4e.com/api",
+    "SWAPI_ROUTE_PEOPLE": "/people",
+    "SWAPI_ROUTE_PLANETS": "/planets"
+}

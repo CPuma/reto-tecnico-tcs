@@ -1,6 +1,31 @@
 # README
 
-## Test Swapi Serverless
+## VERSION SWAPI -  NESTJS + TYPESCRIPT + RXJS
+Por un mal consejo, no aplique Typescript y nestjs que es donde tengo mas experiencia. 
+Actualice para demo personal como lo haria usando NEST + Serverless + Typescript
+
+Por ahora tengo solo los planetas
+
+!! Observaciones .  A pesar de consumir un poco mas RAM. La velocidad de respuesta es mayor a las version de JS   anteriores.
+
+El peso logre bajarlo bastante usando netamente el CORE de NEST + algunas configuraciones y el plugin **serverless-plugin-optimize**.
+
+**Opinion personal -- este plugin para debbuging en la nube no es buena idea.... solo usarlo para ambientes productivos.**
+
+A falta de aumentar mas modulos, SWAGGER y mas TESTs.
+
+PLanets:
+
+- LISTA PAGINADA DE PLANETAS :  https://npmy9oafel.execute-api.us-east-1.amazonaws.com/dev/planetas/
+- BUSQUEDA DE PLANETAS por nombre y paginado :https://npmy9oafel.execute-api.us-east-1.amazonaws.com/dev/planetas/?pagina=1&buscar=Corellia
+- BUSQUEDA DE PLANETAS POR ID : https://npmy9oafel.execute-api.us-east-1.amazonaws.com/dev/planetas/10
+
+
+
+---
+
+
+## Test Swapi Serverless , solo con  JAVASCRIPT
 
 Desarrolle 2 proyectos serverless distintos, cumpliendo con lo requerido
 
